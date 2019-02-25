@@ -1,0 +1,32 @@
+{
+  "name": "nanoconstruct",
+  "version": "0.0.0",
+  "description": "Tool to test and develop nanocomponents",
+  "main": "index.js",
+  "bin": "bin.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodedninja/nanoconstruct.git"
+  },
+  "keywords": [
+    "choo",
+    "nanocomponent"
+  ],
+  "author": "kodedninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kodedninja/nanoconstruct/issues"
+  },
+  "homepage": "https://github.com/kodedninja/nanoconstruct#readme",
+  "dependencies": {
+    "budo": "^11.6.1",
+    "chalk": "^2.4.2",
+    "choo": "^6.13.1",
+    "dedent": "^0.7.0",
+    "minimist": "^1.2.0",
+    "rimraf": "^2.6.3"
+  }
+}
