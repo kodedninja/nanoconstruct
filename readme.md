@@ -1,10 +1,10 @@
 # nanoconstruct
 <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
-    <img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square" alt="Stability"/>
-  </a>
-  <a href="https://www.npmjs.com/package/nanoconstruct">
-    <img src="https://img.shields.io/npm/v/nanoconstruct.svg?style=flat-square" alt="NPM version"/>
-  </a>
+  <img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square" alt="Stability"/>
+</a>
+<a href="https://www.npmjs.com/package/nanoconstruct">
+  <img src="https://img.shields.io/npm/v/nanoconstruct.svg?style=flat-square" alt="NPM version"/>
+</a>
 
 Tiny tool to test and develop [nanocomponents](https://github.com/choojs/nanocomponent).
 

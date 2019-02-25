@@ -1,3 +1,5 @@
+/* global alert */
+
 var Component = require('choo/component')
 var html = require('choo/html')
 
