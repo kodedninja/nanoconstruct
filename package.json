@@ -5,6 +5,7 @@
   "main": "index.js",
   "bin": "bin.js",
   "scripts": {
+    "start": "node bin.js examples/example.js",
     "test": "standard"
   },
   "repository": {
@@ -27,7 +28,8 @@
     "choo": "^6.13.1",
     "choo-devtools": "^2.5.1",
     "dedent": "^0.7.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "sheetify": "^7.3.3"
   },
   "devDependencies": {
     "standard": "^12.0.1"

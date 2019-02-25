@@ -29,13 +29,13 @@ if (argv.help) {
       --help, -h              show this help text
       --port, -p              server port
       --version, -v           print version
-      --open, -o
+      --open, -o              open the page in the browser
     ${chalk.dim('examples')}
       ${chalk.bold('start server')}
       nanoconstruct example.js
 
-      ${chalk.bold('start server on port 3000')}
-      nanoconstruct example.js -p 3000
+      ${chalk.bold('start server on port 3000 and open it')}
+      nanoconstruct example.js -p 3000 -o
   `, '\n')
   process.exit(0)
 }
@@ -46,7 +46,7 @@ if (argv.version) {
 }
 
 var entry = argv._[0]
-assert(entry, 'nanoconstruct: entry file should be supplied')
+assert(entry, 'nanoconstruct: entry path should be supplied')
 
 app(entry, {
   port: argv.port,
