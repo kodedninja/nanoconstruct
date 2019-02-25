@@ -24,8 +24,8 @@ var argv = minimist(process.argv.slice(2), {
 })
 
 if (argv.help) {
-  console.log('\n', dedent`
-    ${chalk.dim('usage')}
+  console.log(dedent`
+    \n${chalk.dim('usage')}
       ${chalk.yellow.bold('nanoconstruct')} [opts] <entry>
     ${chalk.dim('options')}
       --help, -h              show this help text

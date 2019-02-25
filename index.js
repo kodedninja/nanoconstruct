@@ -19,11 +19,13 @@ function app (entry, opts) {
     port: opts.port,
     open: opts.open,
     title: 'nanoconstruct',
-    stream: process.stdout,
     pushstate: true,
     browserify: {
       transform: sheetify
     }
+  }).on('connect', function (ev) {
+    console.log(`\n${chalk.yellow('nanoconstruct')} is listening on ${chalk.cyan(ev.uri)}\n`)
+    console.log('Exit by Ctrl + C\n')
   })
 }
 

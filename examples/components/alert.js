@@ -15,7 +15,7 @@ module.exports = class SimpleComponent extends Component {
 
   click (e) {
     e.preventDefault()
-    alert('hello')
+    alert(':)')
     this.rerender()
   }
 
