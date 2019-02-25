@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var minimist = require('minimist')
 var chalk = require('chalk')
 var dedent = require('dedent')
