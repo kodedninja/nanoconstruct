@@ -18,13 +18,12 @@ function app (entry, opts) {
     live: true,
     port: opts.port,
     open: opts.open,
+    title: 'nanoconstruct',
+    stream: process.stdout,
+    pushstate: true,
     browserify: {
       transform: sheetify
     }
-  }).on('connect', function (ev) {
-    console.log('\n', chalk.yellow(`Server running on ${chalk.cyan(ev.uri)}.`), '\n')
-  }).on('update', function () {
-    console.log('Changed!')
   })
 }
 
