@@ -1,4 +1,4 @@
 module.exports = {
-  alert: require('./alert'),
-  example: require('./example')
+  Alert: require('./alert'),
+  Example: require('./example')
 }
