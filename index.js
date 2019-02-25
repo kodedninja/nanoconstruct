@@ -9,14 +9,15 @@ module.exports = app
 
 var tmpDir = path.join(__dirname, 'tmp')
 
-function app (entry, port) {
+function app (entry, opts) {
   var absolute = path.resolve(entry)
 
   writeForwarder(absolute)
 
   budo(path.join(__dirname, 'lib', 'index.js'), {
     live: true,
-    port: port
+    port: opts.port,
+    open: opts.open
   }).on('connect', function (ev) {
     console.log('\n', chalk.yellow(`Server running on ${chalk.cyan(ev.uri)}.`), '\n')
   }).on('update', function () {

@@ -6,15 +6,17 @@ var app = require('.')
 
 var argv = minimist(process.argv.slice(2), {
   alias: {
-    'version': 'v',
+    'help': 'h',
+    'open': 'o',
     'port': 'p',
-    'help': 'h'
+    'version': 'v'
   },
   default: {
     port: process.env.PORT || 8080
   },
   boolean: [
     'help',
+    'open',
     'version'
   ]
 })
@@ -24,9 +26,10 @@ if (argv.help) {
     ${chalk.dim('usage')}
       ${chalk.yellow.bold('nanoconstruct')} [opts] <entry>
     ${chalk.dim('options')}
-      --version, -v           print version
-      --port, -p              server port
       --help, -h              show this help text
+      --port, -p              server port
+      --version, -v           print version
+      --open, -o
     ${chalk.dim('examples')}
       ${chalk.bold('start server')}
       nanoconstruct example.js
@@ -45,4 +48,7 @@ if (argv.version) {
 var entry = argv._[0]
 assert(entry, 'nanoconstruct: entry file should be supplied')
 
-app(entry, argv.port)
+app(entry, {
+  port: argv.port,
+  open: argv.open
+})
