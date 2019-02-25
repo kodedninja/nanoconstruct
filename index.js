@@ -3,7 +3,6 @@ var path = require('path')
 var dedent = require('dedent')
 var chalk = require('chalk')
 var fs = require('fs')
-var rmrf = require('rimraf')
 
 module.exports = app
 
@@ -22,8 +21,6 @@ function app (entry, opts) {
     console.log('\n', chalk.yellow(`Server running on ${chalk.cyan(ev.uri)}.`), '\n')
   }).on('update', function () {
     console.log('Changed!')
-  }).on('exit', function () {
-    console.log('Goodbye!')
   })
 }
 

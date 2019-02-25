@@ -2,14 +2,14 @@ var Component = require('choo/component')
 var html = require('choo/html')
 
 module.exports = class SimpleComponent extends Component {
-  constructor() {
+  constructor () {
     super()
     this.count = 0
 
     this.click = this.click.bind(this)
   }
 
-  createElement() {
+  createElement () {
     return html`
       <div>
         <div>I'm a simple component.</div>
@@ -20,13 +20,13 @@ module.exports = class SimpleComponent extends Component {
     `
   }
 
-  click(e) {
+  click (e) {
     e.preventDefault()
     this.count++
     this.rerender()
   }
 
-  update() {
+  update () {
     return false
   }
 }
