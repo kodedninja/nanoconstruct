@@ -2,21 +2,20 @@ var Component = require('choo/component')
 var html = require('choo/html')
 
 module.exports = class SimpleComponent extends Component {
-  constructor () {
+  constructor (message) {
     super()
-    this.click = this.click.bind(this)
+    this.message = message
   }
 
-  createElement () {
+  createElement (message) {
     return html`
-      <a href="#" onclick="${this.click}">Click to alert</a>
+      <a href="#" onclick="${click}">${this.message}</a>
     `
-  }
 
-  click (e) {
-    e.preventDefault()
-    alert(':)')
-    this.rerender()
+    function click (e) {
+      e.preventDefault()
+      alert(message)
+    }
   }
 
   update () {

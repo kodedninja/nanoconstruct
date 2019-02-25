@@ -1,11 +1,11 @@
 {
   "name": "nanoconstruct",
   "version": "0.0.0",
-  "description": "Tool to test and develop nanocomponents",
+  "description": "Tiny tool to test and develop nanocomponents",
   "main": "index.js",
   "bin": "bin.js",
   "scripts": {
-    "start": "node bin.js examples/example.js",
+    "start": "node bin.js examples",
     "test": "standard"
   },
   "repository": {
