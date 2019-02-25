@@ -10,6 +10,8 @@ Tiny tool to test and develop [nanocomponents](https://github.com/choojs/nanocom
 
 `nanoconstruct` is a very simple wrapper around your components. It's inspired by [Kit](https://github.com/c8r/kit), uses [budo](https://github.com/mattdesl/budo) under the hood and contains snippets from [jalla](https://github.com/jallajs/jalla).
 
+![Demo of nanoconstruct](demo.gif)
+
 ## Installation
 ```
 npm i nanoconstruct
