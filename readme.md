@@ -18,7 +18,7 @@ npm i nanoconstruct
 ```
 
 ## Getting Started
-If your component depends on custom states or parameters, you can wrap it into a simple wrapper function. Otherwise, input the component's file.
+If your component depends on custom states or parameters, you can wrap it into a simple wrapper function. Otherwise, use the component's file.
 
 A simple wrapper function looks like this:
 ```javascript
@@ -35,7 +35,9 @@ nanoconstruct example.js
 ```
 
 ### Multiple Components
-It's also possible to use your whole component library at once. Just export all the wrapper functions from a `.js` file.
+It's also possible to use your whole component library at once. Use the `--library` mode and point `nanoconstruct` to a directory of wrapper functions or components.
+
+However, if the structure of your components isn't that simple, export all the wrappers or components from a `.js` file and use this as input.
 
 Like this:
 ```javascript
