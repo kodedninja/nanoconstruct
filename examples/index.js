@@ -1,4 +1,4 @@
 module.exports = {
   Alert: require('./alert'),
-  Example: require('./example')
+  Example: require('./components/simple')
 }

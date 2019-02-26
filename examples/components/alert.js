@@ -4,14 +4,14 @@ var Component = require('choo/component')
 var html = require('choo/html')
 
 module.exports = class SimpleComponent extends Component {
-  constructor (message) {
+  constructor (text) {
     super()
-    this.message = message
+    this.text = text
   }
 
   createElement (message) {
     return html`
-      <a href="#" onclick="${click}">${this.message}</a>
+      <a href="#" onclick="${click}">${this.text}</a>
     `
 
     function click (e) {
