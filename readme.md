@@ -51,13 +51,17 @@ usage
   nanoconstruct [opts] <entry>
 options
   --help, -h              show this help text
+  --library, -l           use all the files from a library
+  --open, -o              open the page in the browser
   --port, -p              server port
   --version, -v           print version
-  --open, -o              open the page in the browser
 examples
   start server
   nanoconstruct example.js
 
   start server on port 3000 and open it
   nanoconstruct example.js -p 3000 -o
+
+  start server with library mode
+  nanoconstruct components --library
 ```

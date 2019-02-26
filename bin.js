@@ -9,15 +9,17 @@ var app = require('.')
 var argv = minimist(process.argv.slice(2), {
   alias: {
     'help': 'h',
+    'library': 'l',
     'open': 'o',
     'port': 'p',
-    'version': 'v'
+    'version': 'v',
   },
   default: {
     port: process.env.PORT || 8080
   },
   boolean: [
     'help',
+    'library',
     'open',
     'version'
   ]
@@ -29,15 +31,19 @@ if (argv.help) {
       ${chalk.yellow.bold('nanoconstruct')} [opts] <entry>
     ${chalk.dim('options')}
       --help, -h              show this help text
+      --library, -l           use all the files from a library
+      --open, -o              open the page in the browser
       --port, -p              server port
       --version, -v           print version
-      --open, -o              open the page in the browser
     ${chalk.dim('examples')}
       ${chalk.bold('start server')}
       nanoconstruct example.js
 
       ${chalk.bold('start server on port 3000 and open it')}
       nanoconstruct example.js -p 3000 -o
+
+      ${chalk.bold('start server with library mode')}
+      nanoconstruct components --library
   `, '\n')
   process.exit(0)
 }
@@ -52,5 +58,6 @@ assert(entry, 'nanoconstruct: entry path should be supplied')
 
 app(entry, {
   port: argv.port,
-  open: argv.open
+  open: argv.open,
+  library: argv.library
 })

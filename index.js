@@ -12,7 +12,7 @@ var tmpDir = path.join(__dirname, 'tmp')
 function app (entry, opts) {
   var absolute = path.resolve(entry)
 
-  writeForwarder(absolute)
+  writeForwarder(absolute, opts.library)
 
   budo(path.join(__dirname, 'lib', 'index.js'), {
     live: true,
@@ -29,11 +29,28 @@ function app (entry, opts) {
   })
 }
 
-function writeForwarder (absolute) {
+function writeForwarder (absolute, libraryMode) {
   // Ensure we have the tmp directory
   !fs.existsSync(tmpDir) && fs.mkdirSync(tmpDir)
-  // Do the trick
-  fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
-    module.exports = require('${absolute}')
-  `)
+
+  if (libraryMode) {
+    var files = fs.readdirSync(absolute, { withFileTypes: true })
+    // Filter out directories
+    files = files.filter(file => !file.isDirectory())
+    fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
+      module.exports = {
+        ${files.map(renderFile)}
+      }
+    `)
+
+    function renderFile (file, id) {
+      var componentName = file.name.replace('.js', '')
+      return `"${componentName}": require('${absolute}/${file.name}')\n`
+    }
+  } else {
+    // Do the trick
+    fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
+      module.exports = require('${absolute}')
+    `)
+  }
 }
