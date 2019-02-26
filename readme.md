@@ -18,12 +18,12 @@ npm i nanoconstruct
 ```
 
 ## Getting Started
-You must wrap a component into a simple wrapper function. This enables you to define custom states and parameters while testing.
+If your component depends on custom states or parameters, you can wrap it into a simple wrapper function. Otherwise, input the component's file.
 
 A simple wrapper function looks like this:
 ```javascript
 var html = require('choo/html')
-var Component = require('./component')
+var Component = require('./components/component')
 
 var c = new Component()
 
@@ -40,7 +40,7 @@ It's also possible to use your whole component library at once. Just export all 
 Like this:
 ```javascript
 module.exports = {
-  Title: require('./components/title'),
+  Title: require('./title-wrapper'),
   Content: require('./component/content')
 }
 ```
