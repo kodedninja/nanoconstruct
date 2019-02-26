@@ -12,7 +12,7 @@ var argv = minimist(process.argv.slice(2), {
     'library': 'l',
     'open': 'o',
     'port': 'p',
-    'version': 'v',
+    'version': 'v'
   },
   default: {
     port: process.env.PORT || 8080

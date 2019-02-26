@@ -3,6 +3,7 @@ var path = require('path')
 var dedent = require('dedent')
 var chalk = require('chalk')
 var fs = require('fs')
+var chokidar = require('chokidar')
 var sheetify = require('sheetify')
 
 module.exports = app
@@ -34,23 +35,30 @@ function writeForwarder (absolute, libraryMode) {
   !fs.existsSync(tmpDir) && fs.mkdirSync(tmpDir)
 
   if (libraryMode) {
-    var files = fs.readdirSync(absolute, { withFileTypes: true })
-    // Filter out directories
-    files = files.filter(file => !file.isDirectory())
-    fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
-      module.exports = {
-        ${files.map(renderFile)}
-      }
-    `)
-
-    function renderFile (file, id) {
-      var componentName = file.name.replace('.js', '')
-      return `"${componentName}": require('${absolute}/${file.name}')\n`
-    }
+    // Watch input files for changes
+    chokidar.watch(absolute, { ignoreInitial: true, depth: 1 }).on('all', (event) => {
+      writeMultiForwarder(absolute)
+    })
   } else {
     // Do the trick
     fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
       module.exports = require('${absolute}')
     `)
+  }
+}
+
+function writeMultiForwarder (absolute) {
+  var files = fs.readdirSync(absolute, { withFileTypes: true })
+  // Filter out directories
+  files = files.filter(file => !file.isDirectory())
+  fs.writeFileSync(path.join(tmpDir, 'index.js'), dedent`
+    module.exports = {
+      ${files.map(renderFile)}
+    }
+  `)
+
+  function renderFile (file, id) {
+    var componentName = file.name.replace('.js', '')
+    return `"${componentName}": require('${absolute}/${file.name}')\n`
   }
 }
