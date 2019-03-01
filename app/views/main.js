@@ -32,9 +32,6 @@ function view (state, emit) {
       var componentRender = state.nanoconstruct.components[selected]
       // Use render as the default method of the wrapper
       if (typeof componentRender !== 'function') {
-        if (typeof componentRender.test === 'function') {
-          console.log('test: ' + selected)
-        }
         if (typeof componentRender.render === 'function') {
           componentRender = componentRender.render
         } else {
@@ -42,7 +39,11 @@ function view (state, emit) {
         }
       }
 
-      return html`${componentRender()}`
+      var el = html`${componentRender()}`
+      // pass it to test runner
+      emit(state.events.TEST, selected, el)
+
+      return el
     }
 
     function message (string) {

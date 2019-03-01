@@ -17,7 +17,7 @@ Tiny tool to test and develop [nanocomponents](https://github.com/choojs/nanocom
 npm i nanoconstruct
 ```
 
-## Getting Started
+## Usage
 If your component depends on custom states or parameters, you can wrap it into a simple wrapper function. Otherwise, use the component's file.
 
 A simple wrapper function looks like this:
@@ -34,6 +34,28 @@ Then just point `nanoconstruct` to this file with:
 nanoconstruct example.js
 ```
 
+### Tests
+I want `nanoconstruct` to provide you with everything you might need to work on a component. So why not tests? You can define a `test(t, el)` function in your exported wrapper and it'll be ran automatically when you select the component in the app.
+
+It gets a [`tape`](https://github.com/substack/tape) test object and the rendered `element` of the component.
+
+```javascript
+var html = require('choo/html')
+var Alert = require('./components/alert')
+
+var component = new Alert('Click me!')
+
+module.exports = {
+  render: () => html`
+    ${component.render(':)')}
+  `,
+  test: (t, el) => {
+    t.plan(1)
+    t.equal(el.innerHTML, 'Click me!')
+  }
+}
+```
+
 ### Multiple Components
 It's also possible to use your whole component library at once. Use the `--library` mode and point `nanoconstruct` to a directory of wrapper functions or components.
 
@@ -47,7 +69,7 @@ module.exports = {
 }
 ```
 
-## Usage
+## CLI
 ```
 usage
   nanoconstruct [opts] <entry>

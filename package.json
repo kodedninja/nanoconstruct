@@ -30,7 +30,8 @@
     "choo-devtools": "^2.5.1",
     "dedent": "^0.7.0",
     "minimist": "^1.2.0",
-    "sheetify": "^7.3.3"
+    "sheetify": "^7.3.3",
+    "tape": "^4.10.1"
   },
   "devDependencies": {
     "dependency-check": "^3.3.0",

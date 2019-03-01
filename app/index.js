@@ -10,6 +10,7 @@ var app = choo()
 app.use(devtools())
 
 app.use(require('./stores/components'))
+app.use(require('./stores/tests'))
 
 app.route('/:component', require('./views/main'))
 
