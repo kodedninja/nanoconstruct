@@ -6,8 +6,10 @@ css('./styles/style.css')
 
 var app = choo()
 
-// In case anyone needs it
-app.use(devtools())
+// In case anyone needs it (disable logging)
+app.use(devtools({
+  filter: () => false
+}))
 
 app.use(require('./stores/components'))
 app.use(require('./stores/tests'))

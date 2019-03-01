@@ -8,7 +8,9 @@
 
 Tiny tool to test and develop [nanocomponents](https://github.com/choojs/nanocomponent).
 
-`nanoconstruct` is a very simple wrapper around your components. It's inspired by [Kit](https://github.com/c8r/kit), uses [budo](https://github.com/mattdesl/budo) under the hood and contains snippets from [jalla](https://github.com/jallajs/jalla).
+`nanoconstruct` is a very simple wrapper around your components. It's inspired by [Kit](https://github.com/c8r/kit) and uses [budo](https://github.com/mattdesl/budo) under the hood.
+
+It includes [`choo-devtools`](https://github.com/choojs/choo-devtools), so you have access to the state and other Choo things, and [`tape`](https://github.com/substack/tape) for [testing](#tests).
 
 ![Demo of nanoconstruct](demo.gif)
 
