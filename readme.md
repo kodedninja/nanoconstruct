@@ -8,7 +8,7 @@
 
 Tiny tool to test and develop [nanocomponents](https://github.com/choojs/nanocomponent).
 
-`nanoconstruct` is a very simple wrapper around your components. It's inspired by [Kit](https://github.com/c8r/kit) and uses [budo](https://github.com/mattdesl/budo) under the hood.
+`nanoconstruct` provides a very simple wrapper around your components and serves them on a simple interface you can access with your browser. It's inspired by [Kit](https://github.com/c8r/kit) and uses [budo](https://github.com/mattdesl/budo) under the hood.
 
 It includes [`choo-devtools`](https://github.com/choojs/choo-devtools), so you have access to the state and other Choo things, and [`tape`](https://github.com/substack/tape) for [testing](#tests).
 
@@ -20,7 +20,7 @@ npm i nanoconstruct
 ```
 
 ## Usage
-If your component depends on custom states or parameters, you can wrap it into a simple wrapper function. Otherwise, use the component's file.
+If your component depends on a custom state or parameters, you can wrap it into a simple wrapper function. Otherwise, a neutral wrapper will be used around the component.
 
 A simple wrapper function looks like this:
 ```javascript
@@ -31,15 +31,15 @@ var c = new Component()
 
 module.exports = () => html`${c.render()}`
 ```
-Then just point `nanoconstruct` to this file with:
+Then just point `nanoconstruct` to the file with:
 ```
 nanoconstruct example.js
 ```
 
 ### Tests
-I want `nanoconstruct` to provide you with everything you might need to work on a component. So why not tests? You can define a `test(t, el)` function in your exported wrapper and it'll be ran automatically when you select the component in the app.
+I want `nanoconstruct` to provide you with everything you might need to work on a component. So why not tests? You can define a `test(t, el)` function in your exported wrapper and it'll be ran automatically when you select the component in the app. Check the console!
 
-It gets a [`tape`](https://github.com/substack/tape) test object and the rendered `element` of the component.
+It gets a [`tape`](https://github.com/substack/tape) test object and the rendered `element`.
 
 ```javascript
 var html = require('choo/html')
