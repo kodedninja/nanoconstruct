@@ -15,7 +15,7 @@ function app (entry, opts) {
 
   writeForwarder(absolute, opts.library)
 
-  budo(path.join(__dirname, 'lib', 'index.js'), {
+  budo(path.join(__dirname, 'app', 'index.js'), {
     live: true,
     port: opts.port,
     open: opts.open,

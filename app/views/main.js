@@ -29,11 +29,20 @@ function view (state, emit) {
     `
 
     function renderComponent () {
-      if (typeof state.nanoconstruct.components[selected] !== 'function') return message('Cannot render component :(')
-      // Render component
-      return html`
-        ${state.nanoconstruct.components[selected]()}
-      `
+      var componentRender = state.nanoconstruct.components[selected]
+      // Use render as the default method of the wrapper
+      if (typeof componentRender !== 'function') {
+        if (typeof componentRender.test === 'function') {
+          console.log('test: ' + selected)
+        }
+        if (typeof componentRender.render === 'function') {
+          componentRender = componentRender.render
+        } else {
+          return message('The component or the wrapper is not exported correctly.')
+        }
+      }
+
+      return html`${componentRender()}`
     }
 
     function message (string) {

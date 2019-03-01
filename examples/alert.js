@@ -3,6 +3,8 @@ var Alert = require('./components/alert')
 
 var component = new Alert('Click me!')
 
-module.exports = () => html`
-  ${component.render(':)')}
-`
+module.exports = {
+  render: () => html`
+    ${component.render(':)')}
+  `
+}
