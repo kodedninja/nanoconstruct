@@ -11,6 +11,7 @@ app.use(devtools({
   filter: () => false
 }))
 
+app.use(require('choo-shortemit'))
 app.use(require('./stores/components'))
 app.use(require('./stores/tests'))
 

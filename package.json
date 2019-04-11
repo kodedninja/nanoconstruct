@@ -28,6 +28,7 @@
     "chokidar": "^2.1.2",
     "choo": "^6.13.1",
     "choo-devtools": "^2.5.1",
+    "choo-shortemit": "^0.1.0",
     "dedent": "^0.7.0",
     "minimist": "^1.2.0",
     "sheetify": "^7.3.3",
