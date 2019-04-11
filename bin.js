@@ -4,7 +4,7 @@ var minimist = require('minimist')
 var chalk = require('chalk')
 var dedent = require('dedent')
 var assert = require('assert')
-var app = require('.')
+var app = require('./server')
 
 var argv = minimist(process.argv.slice(2), {
   alias: {
