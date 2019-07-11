@@ -21,8 +21,6 @@ function inspector (componentRenderer, selected, events) {
     }
 
     var el = html`${componentRenderer()}`
-    // pass it to test runner
-    emit(events.TEST, selected, el)
 
     return el
   }
